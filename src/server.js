@@ -8,8 +8,7 @@ const morgan = require('morgan');
 // Esoteric Resources
 const errorHandler = require('./error-handlers/500.js');
 const notFound = require('./error-handlers/404.js');
-const authRoutes = require('../../auth/routes.js');
-const logger = require('./middleware/logger.js');
+const authRoutes = require('./routes/routes.js');
 const v1Routes = require('./routes/v1');
 const v2Routes = require('./routes/v2');
 
@@ -19,24 +18,27 @@ const app = express();
 // App Level MW
 app.use(cors());
 app.use(morgan('dev'));
-app.use(logger);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+app.get('/',home)
 app.use(authRoutes);
 app.use('/api/v1',v1Routes);
 app.use('/api/v2',v2Routes);
 
 // Catchalls
-app.use('*',notFound);
+app.use(notFound);
 app.use(errorHandler);
 
+function home(req,res){
+  res.send('welcom in home')
+}
+
 module.exports = {
-  server: app,
+  app,
   start: (port) => {
-    if (!port) { throw new Error("Missing Port"); }
     app.listen(port, () => {
       console.log(`Server Up on ${port}`);
     });
