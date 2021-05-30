@@ -1,7 +1,7 @@
 # auth-api
 ## Author: Anwar Abbass
-- tests report: [here]()
-- front-end : [here]()
+- tests report: [here](https://github.com/AnwarAbbass/auth-api/actions/runs/879890146)
+- front-end : [here](https://auth-api-anwar.herokuapp.com/)
 ## Setup
 - .env requirements
 - "base-64"
