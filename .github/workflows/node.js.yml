@@ -23,4 +23,4 @@ jobs:
     - run: npm test
       env:
         CI: true
-        MONGOOSE_TEST_URI: mongodb+srv://anwa:258963@cluster0.xfyfj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+        MONGOOSE_TEST_URI: mongodb+srv://anwar:asdfghjkl@cluster0.xfyfj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
